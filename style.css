@@ -1,0 +1,35 @@
+#header{
+    background-color: darkblue;
+}
+#title{
+    color: lightgray;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#searchBlock{
+    overflow: hidden;
+    background-color: #f8f9fa;
+    height: 100%;
+}
+#searchBar{
+    padding-top: 10%;
+    padding-bottom: 50px;
+}
+#searchBtn{
+    color: darkblue;
+}
+#savedCities{
+    padding-bottom: 75px;
+}
+.cityBtn{
+    margin-left: 10%;
+    margin-top: 3%;
+    width: 80%;
+    height: 40px;
+    border-color: lightgray;
+    background-color: white;
+}
+#weatherBlock{
+    
+}

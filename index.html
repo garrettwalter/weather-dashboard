@@ -10,7 +10,38 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <body>
-        
+        <section id="weatherDashboard">
+            <div class="row" id="head">
+                <div class="col-sm-12" id="header">
+                    <h2 id="title">
+                        Weather Dashboard
+                    </h2>
+                </div>
+            </div>
+            <div class="row" id="content">
+                <div class="col-sm-3" id="searchBlock">
+                    <div class="row">
+                        <nav class="navbar navbar-light bg-light" id="searchBar">
+                            <form class="form-inline">
+                            <input id="userText" class="form-control mr-sm-2" type="search" placeholder="Search for a City" aria-label="Search">
+                            <button class="btn btn-sm" id="searchBtn" type="submit">Search</button>
+                            </form>
+                        </nav>
+                    </div>
+                    <div class="row" id="savedCitiesDiv">
+                       <div id="savedCities" class="col-sm-12"></div>
+                    </div>
+                </div>
+                <div class="col-sm-9" id="weatherBlock">
+                    <div class="row">
+                        <div class="col-sm-12" id="cityDisplay"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" id="forecastDisplay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
             
        
         
