@@ -30,6 +30,16 @@
     border-color: lightgray;
     background-color: white;
 }
-#weatherBlock{
-    
+.cityDisplay{
+    background-color: #f8f9fa;
+    padding: 2%;
+    margin-left: 5%;
+    margin-top: 3%;
+    margin-right: 5%;
+}
+#info4City{
+    list-style-type:none;
+}
+#cityInfo{
+    text-align: center;
 }
