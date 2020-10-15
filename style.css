@@ -1,3 +1,6 @@
+body,html{
+    background-color: slategrey;
+}
 #header{
     background-color: darkblue;
 }
@@ -7,9 +10,12 @@
     padding-top: 1%;
     padding-bottom: 1%;
 }
+#weatherDashboard{
+    background-color: slategrey;
+}
 #searchBlock{
     overflow: hidden;
-    background-color: #f8f9fa;
+    background-color: slategrey;
     height: 100%;
 }
 #searchBar{
@@ -42,4 +48,39 @@
 }
 #cityInfo{
     text-align: center;
+}
+#castRow{
+    margin-left: 3%;
+    margin-top: 5%;
+    margin-right: 3%;
+}
+#day1{
+    background-color: blue;
+    margin: 1%;
+    text-align: center;
+    color: white;
+}
+#day2{
+    background-color: blue;
+    margin: 1%;
+    text-align: center;
+    color: white;
+}
+#day3{
+    background-color: blue;
+    margin: 1%;
+    text-align: center;
+    color: white;
+}
+#day4{
+    background-color: blue;
+    margin: 1%;
+    text-align: center;
+    color: white;
+}
+#day5{
+    background-color: blue;
+    margin: 1%;
+    text-align: center;
+    color: white;
 }

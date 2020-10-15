@@ -1,3 +1,7 @@
+[Video Demonstration](https://drive.google.com/file/d/19n1ZH-eVgiVhTNv39Jh2GHQGcMJM78oO/preview)
+
+[Screenshot](./screenshot/weather-dashboard.png)
+
 # weather-dashboard
 
 

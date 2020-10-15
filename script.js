@@ -2,6 +2,12 @@ $(document).ready(function(){
 
 console.log("Works");
 
+$("#day1").hide();
+$("#day2").hide();
+$("#day3").hide();
+$("#day4").hide();
+$("#day5").hide();
+
 var userText = $("#userText");
 var searchBtn = $("#searchBtn");
 var savedCities = $("#savedCities");
@@ -41,7 +47,7 @@ function renderSavedCities() {
 
 searchBtn.on("click", function(){
     event.preventDefault();
-    var userSearch = userText.val();
+    var userSearch = userText.val().toUpperCase();
     console.log(userSearch);
     savedCity.push(userSearch);
     var newCity = JSON.stringify(savedCity);
@@ -61,6 +67,11 @@ for(i=0;i<cities.length;i++){
 function renderResponse(){
     var selected = $(this).attr("data-name");
     console.log(selected);
+    $("#day1").css("display","block");
+    $("#day2").css("display","block");
+    $("#day3").css("display","block");
+    $("#day4").css("display","block");
+    $("#day5").css("display","block");
 
     var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q="+selected+"&appid=741a06d50883b230f6d00bc0982c4bd8&units=imperial";
     
@@ -69,12 +80,36 @@ function renderResponse(){
         method: "GET"
     }).then(function(response){
         console.log(response);
-        $("#cityInfo").text(selected);
-        $("#cityTemp").text("Current Temp: "+response.main.temp);
+        $("#cityInfo").text(selected + " --- " + moment().format("MMM Do YY"));
+        $("#cityWeather").text("Currently: "+response.weather[0].description);
+        $("#cityTemp").text("Current Temp: "+response.main.temp + " F");
         $("#cityHum").text("Humidity: "+response.main.humidity+"%");
         $("#cityWind").text("Wind Speed: "+response.wind.speed+" mph");
         $("#cityUV").text("UV Index: ");
         $("#cityDisplay").addClass("cityDisplay");
+
+        
+    })
+    $.ajax({
+        url: "https://api.openweathermap.org/data/2.5/forecast?q="+selected+"&appid=741a06d50883b230f6d00bc0982c4bd8&units=imperial",
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+        $("#day1Date").text(moment().add(1, 'days').calendar("L"));
+        $("#day1Temp").text(response.list[0].main.temp+" F");
+        $("#day1Weather").text(response.list[0].weather[0].description);
+        $("#day2Date").text(moment().add(2, 'days').calendar("L"));
+        $("#day2Temp").text(response.list[8].main.temp+" F");
+        $("#day2Weather").text(response.list[8].weather[0].description);
+        $("#day3Date").text(moment().add(3, 'days').calendar("L"));
+        $("#day3Temp").text(response.list[16].main.temp+" F");
+        $("#day3Weather").text(response.list[16].weather[0].description);
+        $("#day4Date").text(moment().add(4, 'days').calendar("L"));
+        $("#day4Temp").text(response.list[24].main.temp+" F");
+        $("#day4Weather").text(response.list[24].weather[0].description);
+        $("#day5Date").text(moment().add(5, 'days').calendar("L"));
+        $("#day5Temp").text(response.list[32].main.temp+" F");
+        $("#day5Weather").text(response.list[32].weather[0].description);
     })
  
 }
