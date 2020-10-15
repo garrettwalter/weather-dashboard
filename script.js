@@ -2,26 +2,26 @@ $(document).ready(function(){
 
 console.log("Works");
 
+// hides forecast divs until a city is selected
 $("#day1").hide();
 $("#day2").hide();
 $("#day3").hide();
 $("#day4").hide();
 $("#day5").hide();
 
+// dom vars
 var userText = $("#userText");
 var searchBtn = $("#searchBtn");
 var savedCities = $("#savedCities");
-var cityBtn = $("#cityBtn");
-var weatherBlock = $("#weatherBlock");
-var cityDisplay = $("#cityDisplay");
-var forecastDisplay = $("#forecastDisplay");
 
+// jquery vars
 var savedCity = [];
 var addedCity = localStorage.getItem("savedCities");
 var cities = [];
 var cities = JSON.parse(addedCity);
 console.log(cities);
 
+// renders button for searched city
 function renderSearchedCity() {
     
     var city = $("<button>");
@@ -33,6 +33,7 @@ function renderSearchedCity() {
     savedCities.prepend(city);
 }
 
+// renders prev saved cities buttons
 function renderSavedCities() {
     for(i=0;i<savedCity.length;i++){
     var city = $("<button>");
@@ -45,6 +46,7 @@ function renderSavedCities() {
     }
 }
 
+// creates btn for searched city
 searchBtn.on("click", function(){
     event.preventDefault();
     var userSearch = userText.val().toUpperCase();
@@ -56,25 +58,29 @@ searchBtn.on("click", function(){
     console.log(addedCity);
 })
 
+// renders response when city btn is clicked
 savedCities.on("click","#cityBtn",renderResponse);
 
+// pushes saved cites to the array that displays them
 for(i=0;i<cities.length;i++){
     console.log(cities[i]);
     savedCity.push(cities[i]);
 } renderSavedCities();
      
-// api
+// calls api and displays info
 function renderResponse(){
     var selected = $(this).attr("data-name");
     console.log(selected);
+
+    // displays 5 day forecast
     $("#day1").css("display","block");
     $("#day2").css("display","block");
     $("#day3").css("display","block");
     $("#day4").css("display","block");
     $("#day5").css("display","block");
 
+    // displays current weather info
     var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q="+selected+"&appid=741a06d50883b230f6d00bc0982c4bd8&units=imperial";
-    
     $.ajax({
         url: queryUrl,
         method: "GET"
@@ -86,10 +92,10 @@ function renderResponse(){
         $("#cityHum").text("Humidity: "+response.main.humidity+"%");
         $("#cityWind").text("Wind Speed: "+response.wind.speed+" mph");
         $("#cityUV").text("UV Index: ");
-        $("#cityDisplay").addClass("cityDisplay");
-
-        
+        $("#cityDisplay").addClass("cityDisplay"); 
     })
+
+    // displays 5 day forecast
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/forecast?q="+selected+"&appid=741a06d50883b230f6d00bc0982c4bd8&units=imperial",
         method: "GET"
@@ -111,7 +117,5 @@ function renderResponse(){
         $("#day5Temp").text(response.list[32].main.temp+" F");
         $("#day5Weather").text(response.list[32].weather[0].description);
     })
- 
 }
-
 })

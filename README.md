@@ -48,7 +48,7 @@ THEN I am presented with the last searched city forecast
 
 [Screenshot](./screenshot/weather-dashboard.png)
 
-[daily-planner](https://github.com/garrettwalter/weather-dashboard)
+[weather-dashboard](https://github.com/garrettwalter/weather-dashboard)
 
 [Github-Pages](https://garrettwalter.github.io/weather-dashboard/)
 
